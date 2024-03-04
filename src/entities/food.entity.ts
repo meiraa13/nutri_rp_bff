@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import User from "./user.entity";
 
 export enum conclusionResult {
     LOW = "baixo",
@@ -29,5 +30,10 @@ class Food {
     @Column("boolean")
     highlight:boolean
 
+    @ManyToOne(()=>User)
+    user:User
+
 
 }
+
+export default Food

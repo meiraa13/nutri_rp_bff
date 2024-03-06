@@ -7,19 +7,21 @@ const userSchema = z.object({
     name: z.string(),
     email: z.string().email(),
     password: z.string(),
-    foods: foodSchema.array()
 
 })
 
 const userRequestSchema = userSchema.omit({
     id:true,
-    foods:true
 })
 
 const userResponseSchema = userSchema.omit({
     password:true
+}).extend({
+    foods: foodSchema.array().optional()
 })
+
+const allUsersSchema = userResponseSchema.array()
 
 const userUpdateSchema = userRequestSchema.partial()
 
-export { userRequestSchema, userResponseSchema, userSchema, userUpdateSchema }
+export { userRequestSchema, userResponseSchema, userSchema, userUpdateSchema, allUsersSchema }

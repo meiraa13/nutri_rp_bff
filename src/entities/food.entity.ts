@@ -21,8 +21,8 @@ class Food {
     @Column("varchar")
     consumption_mode:string
 
-    @Column({type:"enum", enum:conclusionResult })
-    conclusion:conclusionResult
+    @Column("varchar")
+    conclusion:string
 
     @Column("boolean")
     hipoglycemic:boolean
@@ -32,7 +32,6 @@ class Food {
 
     @ManyToOne(()=>User)
     user:User
-
 
 }
 

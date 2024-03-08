@@ -20,8 +20,19 @@ const userResponseSchema = userSchema.omit({
     foods: foodSchema.array().optional()
 })
 
+const userResponse2Schema = userSchema.omit({
+    password:true
+})
+
 const allUsersSchema = userResponseSchema.array()
 
 const userUpdateSchema = userRequestSchema.partial()
 
-export { userRequestSchema, userResponseSchema, userSchema, userUpdateSchema, allUsersSchema }
+export { 
+    userRequestSchema, 
+    userResponseSchema, 
+    userSchema, 
+    userUpdateSchema, 
+    allUsersSchema, 
+    userResponse2Schema 
+}

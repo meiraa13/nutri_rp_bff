@@ -1,12 +1,14 @@
 import { Request, Response } from "express";
-import { TUserRequest, TUserResponse } from "../interfaces/user.interfaces";
-import { createUserService } from "../services/user/createUser.service";
+import { TLogin } from "../interfaces/login.interfaces";
+import { createSessionService } from "../services/login/createSession.service";
 
-async function createUserController(req: Request, res:Response):Promise<Response>{
-    const userData:TUserRequest = req.body
+async function createSessionController(req: Request, res:Response):Promise<Response>{
+    const userData:TLogin = req.body
 
-    const newUser:TUserResponse = await createUserService(userData)
+    const token = await createSessionService(userData)
 
-    return res.status(201).json(newUser)
+    return res.json(token)
 
 }
+
+export { createSessionController }

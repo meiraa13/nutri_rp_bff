@@ -18,8 +18,11 @@ class Food {
     @Column("int")
     weight:number
 
-    @Column("varchar")
-    consumption_mode:string
+    @Column({type:"varchar", default:""})
+    side:string
+
+    @Column("int")
+    result:number
 
     @Column("varchar")
     conclusion:string

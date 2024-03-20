@@ -6,13 +6,19 @@ const foodSchema = z.object({
     id: z.string(),
     name: z.string(),
     weight: z.number(),
-    consumption_mode: z.string(),
+    side: z.string(),
+    result: z.number(),
     conclusion: z.enum(["baixo", "moderado", "alto"]),
     hipoglycemic: z.boolean(),
     highlight: z.boolean(),
 })
 
 const foodRequestSchema = foodSchema.omit({
+    id:true,
+    conclusion:true
+})
+
+const foodCreateSchema = foodSchema.omit({
     id:true
 })
 
@@ -22,4 +28,4 @@ const foodResponseSchema = foodSchema.extend({
 
 const foodUpdateSchema = foodRequestSchema.partial()
 
-export { foodRequestSchema, foodSchema, foodUpdateSchema, foodResponseSchema}
+export { foodRequestSchema, foodSchema, foodUpdateSchema, foodResponseSchema, foodCreateSchema}

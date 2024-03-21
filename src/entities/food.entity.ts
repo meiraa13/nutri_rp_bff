@@ -19,7 +19,10 @@ class Food {
     weight:number
 
     @Column({type:"varchar", default:""})
-    side:string
+    side:string | undefined
+
+    @Column({type:"int", default:0})
+    weight_side:number | undefined
 
     @Column("int")
     result:number

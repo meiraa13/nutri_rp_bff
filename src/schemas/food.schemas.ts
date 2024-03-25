@@ -8,6 +8,7 @@ const foodSchema = z.object({
     weight: z.number(),
     side: z.string().optional(),
     weight_side: z.number().optional(),
+    insta: z.string().optional(),
     result: z.number(),
     conclusion: z.enum(["baixo", "moderado", "alto"]),
     hipoglycemic: z.boolean(),

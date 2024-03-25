@@ -30,6 +30,9 @@ class Food {
     @Column("varchar")
     conclusion:string
 
+    @Column({type:"varchar", default:""})
+    insta:string | undefined
+
     @Column("boolean")
     hipoglycemic:boolean
 

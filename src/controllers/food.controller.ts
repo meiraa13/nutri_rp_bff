@@ -28,5 +28,4 @@ async function deleteFoodController(req:Request, res:Response):Promise<Response>
     return res.status(204).send()
 }
 
-
 export { createFoodController, readAllFoodsController, deleteFoodController }
